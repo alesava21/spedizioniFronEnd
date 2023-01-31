@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+  <button mat-button routerLink="/welcome" [disabled]="toggle()">Home</button>
+  <button mat-button disabled="disabled">Link</button>
+  <button mat-button *ifRole="['ROLE_ADMIN']" (click)="ricercaSpedizioni()">Ricerca Spedizioni</button>
+
+  <span class="example-spacer"></span>
+  <div>
+    <span style="font-size: smaller;">User:</span>{{ (authService.getUserLogged() | async)?.username | uppercase}} 
+  </div>
+  <button mat-button color="warn" (click)="logout()">Logout</button>
+</mat-toolbar>

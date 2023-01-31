@@ -1,0 +1,123 @@
+<div class="container" >
+    <mat-card class="form">
+        <mat-card-header>
+            <mat-card-title *ngIf="urlFlag =='readOnlyActivated'">Visualizza dettaglio</mat-card-title>
+            <mat-card-title *ngIf="urlFlag =='addActivated'">Inserisci nuovo elemento</mat-card-title>
+            <mat-card-title *ngIf="urlFlag =='editActivated'">Modifica elemento</mat-card-title>
+        </mat-card-header>
+        <form (ngSubmit)="handleFormRequest()" [formGroup]="spedizioniReactive">
+             <mat-card-title>Descrizione</mat-card-title>
+                 <mat-form-field class="form-element" appearance = "fill">
+                    <input matInput name="descrizione" type="text" formControlName="descrizione" placeholder="inserisci descrizione..."  >
+                    <mat-error *ngIf="spedizioniReactive.get('descrizione')?.hasError('required')">descrizione obbligatorio</mat-error>
+                    <mat-error *ngIf="spedizioniReactive.get('descrizione')?.hasError('minlength')">la descrizione deve avere almeno 4 caratteri</mat-error>
+                </mat-form-field>
+
+            <mat-card-title>Peso</mat-card-title>
+                 <mat-form-field class="form-element" appearance="fill">
+                    <input matInput name="peso" type="number" formControlName="peso" placeholder="inserisci peso..."  >
+                    <mat-error *ngIf="spedizioniReactive.get('peso')?.hasError('required')">peso obbligatorio</mat-error>
+                    <mat-error *ngIf="spedizioniReactive.get('peso')?.hasError('minlength')">Il peso deve avere almeno 1 caratteri</mat-error>
+                </mat-form-field>
+
+                <mat-card-title>Altezza</mat-card-title>
+                
+                <mat-form-field class="form-element">
+                    <input matInput name="altezza" type="number" formControlName="altezza" placeholder="inserisci altezza..."  >
+                    <mat-error *ngIf="spedizioniReactive.get('altezza')?.hasError('required')">altezza obbligatorio</mat-error>
+                    <mat-error *ngIf="spedizioniReactive.get('altezza')?.hasError('minlength')">l'altezza deve avere almeno 1 caratteri</mat-error>
+                </mat-form-field>
+
+                <mat-card-title>Lunghezza</mat-card-title>
+
+                <mat-form-field class="form-element">
+                    <input matInput name="lunghezza" type="text" formControlName="lunghezza" placeholder="inserisci lunghezza..."  >
+                    <mat-error *ngIf="spedizioniReactive.get('lunghezza')?.hasError('required')">lunghezza obbligatorio</mat-error>
+                    <mat-error *ngIf="spedizioniReactive.get('lunghezza')?.hasError('minlength')">l'lunghezza deve avere almeno 1 caratteri</mat-error>
+                </mat-form-field>
+
+                <mat-card-title>Nome Destinatario</mat-card-title>
+
+                <mat-form-field class="form-element">
+                    <input matInput name="nomeDestinatario" type="text" formControlName="nomeDestinatario" placeholder="inserisci nomeDestinatario..."  >
+                    <mat-error *ngIf="spedizioniReactive.get('nomeDestinatario')?.hasError('required')">nomeDestinatario obbligatorio</mat-error>
+                    <mat-error *ngIf="spedizioniReactive.get('nomeDestinatario')?.hasError('minlength')">Il nomeDestinatario deve avere almeno 4 caratteri</mat-error>
+                </mat-form-field>
+
+                <mat-card-title>Cognome Destinatario</mat-card-title>
+
+                <mat-form-field class="form-element">
+                    <input matInput name="cognomeDestinatario" type="text" formControlName="cognomeDestinatario" placeholder="inserisci cognomeDestinatario..."  >
+                    <mat-error *ngIf="spedizioniReactive.get('cognomeDestinatario')?.hasError('required')">cognomeDestinatario obbligatorio</mat-error>
+                    <mat-error *ngIf="spedizioniReactive.get('cognomeDestinatario')?.hasError('minlength')">Il cognomeDestinatario deve avere almeno 4 caratteri</mat-error>
+                </mat-form-field>
+
+                <mat-card-title>Data Spedizione</mat-card-title>
+
+                <mat-form-field class="form-element">
+                    <input matInput name="dataSpedizione" type="date" formControlName="dataSpedizione" placeholder="inserisci dataSpedizione..."  >
+                    <mat-error *ngIf="spedizioniReactive.get('dataSpedizione')?.hasError('required')">dataSpedizione obbligatorio</mat-error>
+                    <mat-error *ngIf="spedizioniReactive.get('dataSpedizione')?.hasError('minlength')">Il dataSpedizione deve avere almeno 4 caratteri</mat-error>
+                </mat-form-field>
+
+                <mat-card-title>Nome Mittente</mat-card-title>
+
+                <mat-form-field class="form-element">
+                    <input matInput name="nomeMittente" type="text" formControlName="nomeMittente" placeholder="inserisci nomeMittente..." >
+                    <mat-error *ngIf="spedizioniReactive.get('nomeMittente')?.hasError('required')">nomeMittente obbligatorio</mat-error>
+                    <mat-error *ngIf="spedizioniReactive.get('nomeMittente')?.hasError('minlength')">Il nomeMittente deve avere almeno 4 caratteri</mat-error>
+                </mat-form-field>
+
+                <mat-card-title>Cognome Destinatario</mat-card-title>
+
+                <mat-form-field class="form-element">
+                    <input matInput name="cognomeMittente" type="text" formControlName="cognomeMittente" placeholder="inserisci cognomeMittente..." >
+                    <mat-error *ngIf="spedizioniReactive.get('cognomeMittente')?.hasError('required')">cognomeMittente obbligatorio</mat-error>
+                    <mat-error *ngIf="spedizioniReactive.get('cognomeMittente')?.hasError('minlength')">Il cognomeMittente deve avere almeno 4 caratteri</mat-error>
+                </mat-form-field>
+
+                <mat-card-title>Indirizzo</mat-card-title>
+
+                <mat-form-field class="form-element">
+                    <input matInput name="indirizzo" type="text" formControlName="indirizzo" placeholder="inserisci indirizzo..." >
+                    <mat-error *ngIf="spedizioniReactive.get('indirizzo')?.hasError('required')">indirizzo obbligatorio</mat-error>
+                    <mat-error *ngIf="spedizioniReactive.get('indirizzo')?.hasError('minlength')">Il indirizzo deve avere almeno 4 caratteri</mat-error>
+                </mat-form-field>
+
+                <mat-card-title>Civico</mat-card-title>
+
+                <mat-form-field class="form-element">
+                    <input matInput name="civico" type="text" formControlName="civico" placeholder="inserisci civico..." >
+                    <mat-error *ngIf="spedizioniReactive.get('civico')?.hasError('required')">civico obbligatorio</mat-error>
+                    <mat-error *ngIf="spedizioniReactive.get('civico')?.hasError('minlength')">Il civico deve avere almeno 4 caratteri</mat-error>
+                </mat-form-field>
+
+                <mat-card-title>Regione</mat-card-title>
+
+                <mat-form-field class="form-element">
+                    <input matInput name="regione" type="text" formControlName="regione" placeholder="inserisci regione..." >
+                    <mat-error *ngIf="spedizioniReactive.get('regione')?.hasError('required')">regione obbligatorio</mat-error>
+                    <mat-error *ngIf="spedizioniReactive.get('regione')?.hasError('minlength')">L' regione deve avere almeno 5 caratteri</mat-error>
+                    <mat-error *ngIf="spedizioniReactive.get('regione')?.hasError('maxlength')">L' regione deve avere massimo 30 caratteri</mat-error>
+                </mat-form-field>
+                
+                <mat-card-title>Codice Postale</mat-card-title>
+
+                <mat-form-field class="form-element">
+                    <input matInput name="codicePostale" type="text" formControlName="codicePostale" placeholder="inserisci civico..." >
+                    <mat-error *ngIf="spedizioniReactive.get('codicePostale')?.hasError('required')">codicePostale obbligatorio</mat-error>
+                    <mat-error *ngIf="spedizioniReactive.get('codicePostale')?.hasError('minlength')">Il codicePostale deve avere almeno 4 caratteri</mat-error>
+                </mat-form-field>
+
+                
+
+            <div class="form-element">
+                <button mat-raised-button color="primary" type="submit" class="button" *ngIf="urlFlag != 'readOnlyActivated'">Submit Form</button>
+            </div>
+            <div class="form-element">
+                <button mat-raised-button color="accent" type="submit" class="button" routerLink="/spedizioni/list">Back</button>
+            </div>
+
+        </form>
+    </mat-card>
+</div>
