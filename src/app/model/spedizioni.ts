@@ -7,7 +7,6 @@ export interface spedizioni {
     lunghezza?:string
     nomeDestinatario?: string
     cognomeDestinatario?: string
-    dataSpedizione?:string
     nomeMittente?: string
     cognomeMittente?: string
     indirizzo?:string

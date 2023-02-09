@@ -15,13 +15,12 @@ export interface spedizioniForm extends FormGroup<{
   lunghezza: FormControl<string>;
   nomeDestinatario: FormControl<string>;
   cognomeDestinatario: FormControl<string>;
-  dataSpedizione: FormControl<string>;
   nomeMittente: FormControl<string>;
   cognomeMittente: FormControl<string>;
   indirizzo: FormControl<string>;
   civico: FormControl<string>;
-  regione: FormControl<string>;
   codicePostale: FormControl<string>;
+  regione:FormControl<any>
 }> { }
 
 @Component({
@@ -31,7 +30,9 @@ export interface spedizioniForm extends FormGroup<{
 })
 
 export class DetailSpedizioniComponent {
-
+  options: string[] = ['Abruzzo', 'Basilicata', '	Calabria','	Campania', 'Emilia-Romagna', 'Friuli Venezia Giulia','Lazio', 'Liguria',
+   'Lombardia','Marche', 'Molise', 'Piemonte','Puglia', 'Sardegna', 'Sicilia','Toscana', 'Trentino-Alto Adige', '	Umbria','Valle dAosta', 'Veneto'];
+  
  constructor(private spedizioniService: SpedizioniService,
     private authService: AuthService,
     private snackbarService: SnackbarService,
@@ -50,13 +51,12 @@ export class DetailSpedizioniComponent {
     lunghezza: this.fb.nonNullable.control('', [Validators.required, Validators.minLength(1)]),
     nomeDestinatario: this.fb.nonNullable.control('', [Validators.required, Validators.minLength(4)]),
     cognomeDestinatario: this.fb.nonNullable.control('', [Validators.required, Validators.minLength(4)]),
-    dataSpedizione: this.fb.nonNullable.control('', [Validators.required, Validators.minLength(4)]),
     nomeMittente: this.fb.nonNullable.control('', [Validators.required, Validators.minLength(4)]),
     cognomeMittente: this.fb.nonNullable.control('', [Validators.required, Validators.minLength(4)]),
     indirizzo: this.fb.nonNullable.control('', [Validators.required, Validators.minLength(4)]),
     civico: this.fb.nonNullable.control('', [Validators.required, Validators.minLength(1)]),
-    regione: this.fb.nonNullable.control('', [Validators.required, Validators.minLength(1)]),
     codicePostale: this.fb.nonNullable.control('', [Validators.required, Validators.minLength(1)]),
+    regione: this.fb.control(null),
   });
 
   urlFlag: string = "";

@@ -15,10 +15,15 @@ import { SpedizioniService } from '../spedizioni.service';
 })
 export class ListSpedizioniComponent {
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
   constructor(private spedizioniService: SpedizioniService, private router: Router, public dialog: MatDialog, private route: ActivatedRoute, private dataSearchService: DataSearchService) {}
   dataSource: MatTableDataSource<spedizioni> = new MatTableDataSource<spedizioni>();
   displayedColumns: string[] = ['id', 'codiceSpedizione', 'descrizione', 'peso', 'altezza', 'lunghezza', 'nomeDestinatario', 'cognomeDestinatario',
-   'dataSpedizione', 'nomeMittente', 'cognomeMittente', 'indirizzo', 'civico', 'codicePostale','azioni'];
+   'dataSpedizione', 'nomeMittente', 'cognomeMittente', 'indirizzo', 'civico','regione', 'codicePostale','azioni'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   urlSearchOperationFlag: string | null = ""
 
