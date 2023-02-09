@@ -16,6 +16,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 
@@ -40,7 +41,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatMenuModule
   ],
   exports: [
     MatCardModule,
@@ -58,7 +60,9 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatMenuModule
+
 
   ],
   providers: [

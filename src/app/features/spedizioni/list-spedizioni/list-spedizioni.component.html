@@ -1,9 +1,11 @@
 <div style="padding: 20px;">
     <button mat-icon-button color="primary" (click)="onClickAddNew()"><mat-icon>add</mat-icon></button>
-    <mat-form-field>
-        <mat-label>Filter</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
-      </mat-form-field>
+    <div style="float: right;">
+        <mat-form-field>
+            <mat-label>Filter</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+          </mat-form-field>
+    </div>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 400px;table-layout: fixed;">
         
         <ng-container matColumnDef="id">
