@@ -1,21 +1,25 @@
 <div class="contenitore">
-    <mat-card class="main-card" style="padding: 100px; background-color: rgba(10, 128, 69, 0.401);">
-      <mat-card-header>
-        <mat-card-title >Benvenuto su DHL!</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <p>
-          Using a series of utilities, you can create this jumbotron, just like the one
-          in previous versions of Bootstrap.
-        </p>
-      </mat-card-content>
-      <mat-card-actions *ifRole="['ROLE_ADMIN']">
-        <button mat-raised-button color="primary" routerLink="/spedizioni/list">Vai a Lista Spedizioni</button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
+  <mat-card class="main-card" style="padding: 100px; background-color: rgba(10, 128, 69, 0.401);">
+    <mat-card-header>
+      <mat-card-title>Benvenuto su DHL!</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        Using a series of utilities, you can create this jumbotron, just like the one
+        in previous versions of Bootstrap.
+      </p>
+    </mat-card-content>
+    <mat-card-actions *ifRole="['ROLE_ADMIN']">
+      <button mat-raised-button color="primary" routerLink="/spedizioni/list">Vai a Lista Spedizioni</button>
+    </mat-card-actions>
+  </mat-card>
 
-  <div class="contenitore" *ifRole="['ROLE_UTENTE']">
-    <app-ui-card [cardBody]="'body card Report Ordini'" [cardLink]="'/ordine/report'" [cardTitle]="'Report Ordini'"></app-ui-card>
-    <app-ui-card [cardBody]="'body card Statistiche Varie'" [cardLink]="'/ordine/statistiche'" [cardTitle]="'Statistiche Varie'"></app-ui-card>
-  </div>
+</div>
+
+
+<div class="contenitore" *ifRole="['ROLE_UTENTE']">
+  <app-ui-card [cardBody]="'body card Report Ordini'" [cardLink]="'/ordine/report'"
+               [cardTitle]="'Report Ordini'"></app-ui-card>
+  <app-ui-card [cardBody]="'body card Statistiche Varie'" [cardLink]="'/ordine/statistiche'"
+               [cardTitle]="'Statistiche Varie'"></app-ui-card>
+</div>
