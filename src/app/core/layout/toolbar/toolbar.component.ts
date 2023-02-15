@@ -20,11 +20,11 @@ export class ToolbarComponent {
   }
 
   ricercaSpedizioni() {
-    this.router.navigate(['/spedizioni/list'], {queryParams: {operation: "search"}})
+    this.router.navigate(['/spedizioni/list'], {queryParams: {operation: "readOnly"}})
   }
 
   InserimentoUtenti() {
-    this.router.navigateByUrl('/utenti/list')
+    this.router.navigate(['/utenti/list'],{queryParams: {operation: "readOnly"}})
   }
 
   toggle(): boolean {

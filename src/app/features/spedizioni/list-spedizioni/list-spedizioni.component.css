@@ -4,3 +4,7 @@
 .generale{
   padding: 20px;
 }
+.title{
+  display: block;
+  text-align: center;
+}

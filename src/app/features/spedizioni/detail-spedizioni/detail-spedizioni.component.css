@@ -12,3 +12,7 @@
     float: right;
     margin: 10px 10px;
   }
+.title{
+  display: block;
+  text-align: center;
+}
