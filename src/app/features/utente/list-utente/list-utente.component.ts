@@ -13,9 +13,15 @@ import { MatPaginator } from '@angular/material/paginator';
 })
 export class ListUtenteComponent implements OnInit{
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
   constructor(private userService: UtenteService, private router: Router, public dialog: MatDialog, private route: ActivatedRoute) {}
   dataSource: MatTableDataSource<User> = new MatTableDataSource<User>();
   displayedColumns: string[] = ['id', 'nome', 'cognome', 'dateCreated', 'username', 'azioni'];
+  displayedColumnsNoAdmin: string[] = ['id', 'nome', 'cognome', 'dateCreated', 'username'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   ngOnInit(): void {
     this.getData();

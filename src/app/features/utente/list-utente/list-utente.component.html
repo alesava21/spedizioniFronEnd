@@ -1,7 +1,13 @@
-<div style="padding: 20px;">
-  <button mat-icon-button color="primary" (click)="onClickAddNew()">
+<div class="generale">
+  <button *ifRole="['ROLE_ADMIN']" mat-icon-button color="primary" (click)="onClickAddNew()">
     <mat-icon>add</mat-icon>
   </button>
+  <div class="filter">
+    <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    </mat-form-field>
+  </div>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef> ID</th>
@@ -42,9 +48,14 @@
       </td>
 
     </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <ng-container *ifRole="['ROLE_ADMIN']">
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </ng-container>
+    <ng-container *ifRole="['ROLE_UTENTE']">
+      <tr mat-header-row *matHeaderRowDef="displayedColumnsNoAdmin"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumnsNoAdmin;"></tr>
+    </ng-container>
 
   </table>
 

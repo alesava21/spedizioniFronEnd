@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { DialogComponent } from './dialog/dialog.component';
 import { DetailSpedizioniComponent } from './detail-spedizioni/detail-spedizioni.component';
+import {SharedModule} from "../../shared/shared.module";
 
 const routes: Routes = [
   {
@@ -27,11 +28,6 @@ const routes: Routes = [
     path: 'edit/:id',
     component: DetailSpedizioniComponent
   },
-
-  // {
-  //   path: 'search',
-  //   component: DetailClienteComponent
-  // },
   {
     path: '',
     redirectTo: 'list',
@@ -49,7 +45,8 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     FormsModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule
   ]
 })
 export class SpedizioniModule { }

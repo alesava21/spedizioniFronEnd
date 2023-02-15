@@ -24,6 +24,8 @@ export class ListSpedizioniComponent {
   dataSource: MatTableDataSource<spedizioni> = new MatTableDataSource<spedizioni>();
   displayedColumns: string[] = ['id', 'codiceSpedizione', 'descrizione', 'peso', 'altezza', 'lunghezza', 'nomeDestinatario', 'cognomeDestinatario',
    'dataSpedizione', 'nomeMittente', 'cognomeMittente', 'indirizzo', 'civico','regione', 'codicePostale','azioni'];
+  displayedColumnsNoAdmin: string[] = ['id', 'codiceSpedizione', 'descrizione', 'peso', 'altezza', 'lunghezza', 'nomeDestinatario', 'cognomeDestinatario',
+    'dataSpedizione', 'nomeMittente', 'cognomeMittente', 'indirizzo', 'civico','regione', 'codicePostale'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   urlSearchOperationFlag: string | null = ""
 
@@ -50,7 +52,7 @@ export class ListSpedizioniComponent {
       this.dataSource.data = res;
     });
   }
-  
+
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
   }

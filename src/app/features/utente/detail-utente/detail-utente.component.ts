@@ -5,6 +5,7 @@ import {AuthService} from "../../../core/auth/auth.service";
 import {SnackbarService} from "../../../shared/snackbar/snackbar.service";
 import {ActivatedRoute, Router} from '@angular/router';
 import {DateAdapter} from '@angular/material/core';
+
 export interface UserForm extends FormGroup<{
   id: FormControl<any>;
   nome: FormControl<string>;
@@ -12,7 +13,9 @@ export interface UserForm extends FormGroup<{
   username: FormControl<string>;
   password: FormControl<any>;
   confermaPassword: FormControl<any>;
-}> { }
+}> {
+}
+
 @Component({
   selector: 'app-detail-utente',
   templateUrl: './detail-utente.component.html',
@@ -36,8 +39,8 @@ export class DetailUserComponent implements OnInit {
     nome: this.fb.nonNullable.control('', [Validators.required, Validators.minLength(4)]),
     cognome: this.fb.nonNullable.control('', [Validators.required, Validators.minLength(4)]),
     username: this.fb.nonNullable.control('', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]),
-    password: this.fb.nonNullable.control('', [Validators.required, Validators.minLength(8), Validators.maxLength(15)]),
-    confermaPassword: this.fb.nonNullable.control('', [Validators.required, Validators.minLength(8), Validators.maxLength(15)]),
+    password: this.fb.nonNullable.control('', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]),
+    confermaPassword: this.fb.nonNullable.control('', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]),
   });
 
   urlFlag: string = "";

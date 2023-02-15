@@ -3,8 +3,8 @@
     <button mat-button [matMenuTriggerFor]="menu">MENU</button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item routerLink="/welcome" [disabled]="toggle()">Home</button>
-      <button mat-menu-item *ifRole="['ROLE_ADMIN']" (click)="ricercaSpedizioni()">Ricerca Spedizioni</button>
-      <button mat-menu-item *ifRole="['ROLE_ADMIN']" (click)="InserimentoUtenti()">Inserimento Utenti</button>
+      <button mat-menu-item *ifRole="['ROLE_ADMIN']" (click)="ricercaSpedizioni()">Lista Spedizioni</button>
+      <button mat-menu-item *ifRole="['ROLE_ADMIN']" (click)="InserimentoUtenti()">Lista Utenti</button>
     </mat-menu>
   </div>
   <span class="example-spacer"></span>

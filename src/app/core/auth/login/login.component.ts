@@ -16,6 +16,7 @@ export interface LoginForm extends FormGroup<{
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  hide = true;
   user?: User;
   destroy$: Subject<boolean> = new Subject();
   constructor(private router: Router, private authService: AuthService, private fb: FormBuilder) { }

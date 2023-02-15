@@ -5,6 +5,7 @@ import {FormsModule} from "@angular/forms";
 import {MaterialModule} from "../../shared/material/material.module";
 import {ListUtenteComponent} from "./list-utente/list-utente.component";
 import {DetailUserComponent} from "./detail-utente/detail-utente.component";
+import {SharedModule} from "../../shared/shared.module";
 
 const routes: Routes = [
   {
@@ -40,7 +41,8 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     FormsModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule
   ]
 })
 export class UtenteModule {

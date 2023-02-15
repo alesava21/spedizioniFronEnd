@@ -20,7 +20,7 @@ export class ToolbarComponent {
   }
 
   ricercaSpedizioni() {
-    this.router.navigate(['/spedizioni/search'], {queryParams: {operation: "search"}})
+    this.router.navigate(['/spedizioni/list'], {queryParams: {operation: "search"}})
   }
 
   InserimentoUtenti() {

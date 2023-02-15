@@ -9,17 +9,21 @@
         in previous versions of Bootstrap.
       </p>
     </mat-card-content>
-    <mat-card-actions *ifRole="['ROLE_ADMIN']">
-      <button mat-raised-button color="primary" routerLink="/spedizioni/list">Vai a Lista Spedizioni</button>
-    </mat-card-actions>
   </mat-card>
 
+</div>
+<div class="contenitore" *ifRole="['ROLE_ADMIN']">
+  <app-ui-card [cardBody]="'body card Lista Spedizioni'" [cardLink]="'/spedizioni/list'"
+               [cardTitle]="'Lista Spedizioni'"></app-ui-card>
+  <app-ui-card [cardBody]="'body card Lista Utenti'" [cardLink]="'/utenti/list'"
+               [cardTitle]="'Lista Utenti'"></app-ui-card>
+  <!--      <button mat-raised-button color="primary" routerLink="/spedizioni/list">Vai a Lista Spedizioni</button>-->
 </div>
 
 
 <div class="contenitore" *ifRole="['ROLE_UTENTE']">
-  <app-ui-card [cardBody]="'body card Report Ordini'" [cardLink]="'/ordine/report'"
-               [cardTitle]="'Report Ordini'"></app-ui-card>
-  <app-ui-card [cardBody]="'body card Statistiche Varie'" [cardLink]="'/ordine/statistiche'"
-               [cardTitle]="'Statistiche Varie'"></app-ui-card>
+  <app-ui-card [cardBody]="'body card Report Spedizioni'" [cardLink]="'/spedizioni/list'"
+               [cardTitle]="'Lista Spedizioni'"></app-ui-card>
+  <app-ui-card [cardBody]="'body card Utenti'" [cardLink]="'/utenti/list'"
+               [cardTitle]="'Lista Utenti'"></app-ui-card>
 </div>
